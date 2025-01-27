@@ -86,7 +86,7 @@ canvas {
     background: radial-gradient(circle at 50% 50%, rgba(148, 14, 160, 0.4), transparent 30%);
 }
 
-@keyframes breathing {
+@keyframes breathing2 {
     0%,
     100% {
 
@@ -418,7 +418,10 @@ canvas {
 @media screen and (max-width: 992px) {
 .container ,.custom-circle-container {display:none !important;}
 .framer-1dagnbp h1{font-size:48px !important;}
-canvas {background:none;zindex:0;}
-.framer-15ofz1t{ overflow: visible !important;  transform:scale(0.8);zindex:50; }
+canvas {background:none;}
+.framer-15ofz1t{ overflow: visible !important;  transform:scale(0.8); }
 .framer-9jdsg3{background: radial-gradient(circle at center center, rgba(148, 14, 160, 0.3) 100%, rgba(148, 14, 160, 0.15) 100%, rgba(148, 14, 160, 0.05) 100%, transparent 350%) !important; width:100;}
-  }
+#ai-network{display:none;}
+.framer-WW5Qk .framer-15gzsym {    align-items: none !important;}
+
+}
