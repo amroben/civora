@@ -7,7 +7,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let points = [];
-const pointCount = 150; // عدد النقاط في الشبكة
+const pointCount = 15; // عدد النقاط في الشبكة
 
 // تحديد منطقة الاستثناء (المنطقة الملونة)
 const centerX = canvas.width / 2; // مركز الدائرة
