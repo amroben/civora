@@ -179,26 +179,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const animatedElements = document.querySelectorAll(".scroll-animate")
+document.addEventListener("DOMContentLoaded", () => {
+  const animatedElements = document.querySelectorAll(".scroll-animate");
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const delay = entry.target.getAttribute("data-delay") || 0
-            setTimeout(() => {
-              entry.target.classList.add("visible")
-            }, delay)
-          }
-        })
-      },
-      {
-        threshold: 0.1,
-      },
-    )
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+    }
+  );
 
-    animatedElements.forEach((element) => {
-      observer.observe(element)
-    })
-  })
+  animatedElements.forEach((element) => {
+    observer.observe(element);
+  });
+});
