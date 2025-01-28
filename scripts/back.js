@@ -6,14 +6,16 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+// قيم المتغيرات بناءً على عرض الشاشة
+let pointCount = window.innerWidth < 890 ? 13 : 80;
+let radius = window.innerWidth < 890 ? 180 : 380;
+
 let points = [];
-const pointCount = 10; // عدد النقاط في الشبكة
 const minDistance = 50; // المسافة الدنيا بين النقاط
 
 // تحديد منطقة الاستثناء (المنطقة الملونة)
 const centerX = canvas.width / 2; // مركز الدائرة
 const centerY = canvas.height / 2;
-const radius = 180; // نصف قطر الدائرة الملونة (المنطقة المستثناة)
 
 // إنشاء النقاط بشكل عشوائي خارج المنطقة الملونة
 for (let i = 0; i < pointCount; i++) {
@@ -104,6 +106,7 @@ function draw() {
 
 // بدء الرسم
 draw();
+
 
 
 
