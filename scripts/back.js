@@ -7,12 +7,13 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let points = [];
-const pointCount = 15; // عدد النقاط في الشبكة
+const pointCount = 100; // عدد النقاط في الشبكة
+const minDistance = 50; // المسافة الدنيا بين النقاط
 
 // تحديد منطقة الاستثناء (المنطقة الملونة)
 const centerX = canvas.width / 2; // مركز الدائرة
 const centerY = canvas.height / 2;
-const radius = 80; // نصف قطر الدائرة الملونة (المنطقة المستثناة)
+const radius = 380; // نصف قطر الدائرة الملونة (المنطقة المستثناة)
 
 // إنشاء النقاط بشكل عشوائي خارج المنطقة الملونة
 for (let i = 0; i < pointCount; i++) {
@@ -26,8 +27,8 @@ for (let i = 0; i < pointCount; i++) {
   points.push({
     x: x,
     y: y,
-    vx: (Math.random() - 0.5) * 0.3, // سرعة بطيئة
-    vy: (Math.random() - 0.5) * 0.3, // سرعة بطيئة
+    vx: (Math.random() - 0.5) * 0.5, // سرعة بطيئة
+    vy: (Math.random() - 0.5) * 0.5, // سرعة بطيئة
   });
 }
 
@@ -45,8 +46,24 @@ function draw() {
     if (distFromCenter < radius) {
       const angle = Math.atan2(p1.y - centerY, p1.x - centerX); // زاوية الاتجاه من المركز
       // عكس السرعة للخروج من الدائرة
-      p1.vx = Math.cos(angle) * 0.2; // تطبيق السرعة البطيئة
-      p1.vy = Math.sin(angle) * 0.2; // تطبيق السرعة البطيئة
+      p1.vx = Math.cos(angle) * 0.5; // تطبيق السرعة البطيئة
+      p1.vy = Math.sin(angle) * 0.5; // تطبيق السرعة البطيئة
+    }
+
+    // منع التداخل بين النقاط
+    for (let j = 0; j < points.length; j++) {
+      if (i === j) continue; // تخطي النقطة نفسها
+      const p2 = points[j];
+      const dist = Math.hypot(p2.x - p1.x, p2.y - p1.y);
+
+      if (dist < minDistance) {
+        // تعديل السرعة لإبعاد النقاط
+        const angle = Math.atan2(p2.y - p1.y, p2.x - p1.x);
+        p1.vx -= Math.cos(angle) * 0.02;
+        p1.vy -= Math.sin(angle) * 0.02;
+        p2.vx += Math.cos(angle) * 0.02;
+        p2.vy += Math.sin(angle) * 0.02;
+      }
     }
 
     // رسم النقطة
