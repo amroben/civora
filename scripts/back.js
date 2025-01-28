@@ -7,13 +7,13 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let points = [];
-const pointCount = 100; // عدد النقاط في الشبكة
+const pointCount = 10; // عدد النقاط في الشبكة
 const minDistance = 50; // المسافة الدنيا بين النقاط
 
 // تحديد منطقة الاستثناء (المنطقة الملونة)
 const centerX = canvas.width / 2; // مركز الدائرة
 const centerY = canvas.height / 2;
-const radius = 380; // نصف قطر الدائرة الملونة (المنطقة المستثناة)
+const radius = 180; // نصف قطر الدائرة الملونة (المنطقة المستثناة)
 
 // إنشاء النقاط بشكل عشوائي خارج المنطقة الملونة
 for (let i = 0; i < pointCount; i++) {
