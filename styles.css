@@ -397,7 +397,7 @@ canvas {
 }
 .scroll-animate {
     opacity: 0;
-    transition: opacity 0.9s ease, transform 0.9s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
     transform: translateY(50px); /*This line was in the original code and is kept*/
 }
 
@@ -419,6 +419,7 @@ canvas {
 }}
 
 @media screen and (max-width: 892px) {
+    .tts {display:flex;justify-content:center;}
 .custom-circle{width: 495px;height: 495px;margin:auto;}
 .custom-rotating-svg{width: 496px;height: 496px;}
 .framer-1dagnbp h1{font-size:48px !important;}
@@ -451,17 +452,16 @@ canvas {
 }
 .custom-rotating-svg{width: 501px;height: 501px;}
 }
-@media screen and (max-width: 400px){.content-container{height:800px;}.content-left{margin-top:0px;}
-.custom-circle{   width: 250px;height: 250px;}.custom-rotating-svg{width: 251px;height: 251px;}
-}
 @media screen and (max-width: 550px){
-.custom-circle{   width: 350px;height: 350px;}.custom-rotating-svg{width: 351px;height: 351px;}
+.custom-circle{   width: 300px;height: 300px;}.custom-rotating-svg{width: 301px;height: 301px;}
 .custom-title {font-size:19px;}
 .custom-description {display:none;}
 .custom-badges {display:none;}
-.custom-circle-container{margin:auto;overflow:hidden !important;}
+.custom-circle-container{margin:auto;overflow:hidden !important;}}
+@media screen and (max-width: 480px){.tts span{font-size:35px;}}
+@media screen and (max-width: 400px){.content-container{height:800px;}.content-left{margin-top:0px;}
+.custom-circle{   width: 250px;height: 250px;}.custom-rotating-svg{width: 251px;height: 251px;}.custom-title {font-size:13px;}
+.framer-1vn6qrn{display:flex !important;flex-direction: column !important;}.tts span{font-size:28px;}
 }
-
-
 
 
